@@ -5,11 +5,7 @@ import SearchBar from "@/src/component/home/SearchBar";
 
 export default function Home() {
 	return (
-
 		<div className="flex min-h-screen flex-col bg-zinc-50 font-sans">
-			{/* <div className="w-full flex items-center justify-center"> */}
-				{/* <SearchBar /> */}
-			{/* </div> */}
 			<div className="w-full flex flex-col">
 				<ItemListLayout />
 			</div>
