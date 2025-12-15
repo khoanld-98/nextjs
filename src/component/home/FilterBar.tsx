@@ -76,7 +76,7 @@ export default function FilterBar() {
         </div>
 
         {/* Khoảng tiền */}
-        <div className="flex gap-2">
+        {/* <div className="flex gap-2">
             <div>
             <label className="block text-sm font-medium mb-1 text-gray-700">
                 Giá từ
@@ -101,7 +101,7 @@ export default function FilterBar() {
                 className="w-24 border rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
             </div>
-        </div>
+        </div> */}
 
         {/* Nút áp dụng */}
         <button

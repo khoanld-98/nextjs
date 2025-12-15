@@ -57,7 +57,7 @@ const ItemListLayout = ({title} :PropListItem) => {
     <section className="w-full bg-gray-50 px-4 py-8">
         <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            {title}
+                {title}
             </h2>
 
             {/* Grid 4 cột ở desktop */}
