@@ -112,7 +112,7 @@ export default function UserDetailPage() {
             sm:flex-row sm:gap-6 sm:p-6
           "
         >
-          
+            { id }
         </section>
       </main>
     </div>
