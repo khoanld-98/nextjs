@@ -1,120 +1,128 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
-const images = ["/images/person.jpg", "/images/person2.jpg", "/images/person3.jpg"];
-
-export default function UserDetailPage() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (images.length === 0) return;
-    const interval = setInterval(
-      () => setCurrentIndex((prev) => (prev + 1) % images.length),
-      3000
-    );
-    return () => clearInterval(interval);
-  }, []);
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-100">
-      <main className="flex flex-col gap-4 items-center justify-center px-3 py-4 sm:px-4 sm:py-6">
-        <section
-          className="
-            flex w-full max-w-6xl flex-col gap-4 rounded-2xl bg-white p-4 shadow-xl
-            sm:flex-row sm:gap-6 sm:p-6
-          "
-        >
-          {/* Ảnh bên trái (mobile: trên, desktop: trái) */}
-          <div className="relative h-56 w-full overflow-hidden rounded-2xl sm:h-72 sm:w-72 sm:flex-shrink-0">
-            {images.map((src, i) => (
-              <img
-                key={src}
-                src={src}
-                alt={`User image ${i + 1}`}
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-                  i === currentIndex ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
+    <main className="min-h-screen bg-[#f5f5f5]">
+      {/* flex-col trên mobile, md trở lên mới nằm hàng ngang */}
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 lg:px-0 py-6 flex flex-col gap-4 md:flex-row">
+        {/* Sidebar trái */}
+        {/* full width mobile, cố định rộng ở md+ */}
+        <aside className="w-full md:w-80 md:flex-shrink-0">
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            {/* Ảnh + tên */}
+            <div className="flex flex-col items-center">
+              <div className="relative">
+                <img
+                  src="/images/person.jpg"
+                  alt="avatar"
+                  className="h-32 w-32 rounded-2xl object-cover"
+                />
+                <div className="absolute -top-3 -left-3 bg-pink-500 text-white text-xs px-2 py-1 rounded-full">
+                  Lv 9
+                </div>
+              </div>
+              <h2 className="mt-3 text-xl font-semibold text-gray-900">
+                Đậuu ❤️ 🍓
+              </h2>
+              <p className="text-xs text-gray-500 mt-1">ID 28471469</p>
+            </div>
+
+            {/* Thống kê */}
+            <div className="grid grid-cols-3 gap-2 mt-4 text-center text-xs">
+              <div className="bg-gray-50 rounded-xl p-2">
+                <p className="text-gray-500">Theo dõi</p>
+                <p className="font-semibold text-pink-500">2</p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-2">
+                <p className="text-gray-500">Người hâm mộ</p>
+                <p className="font-semibold">397</p>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-2">
+                <p className="text-gray-500">Đặt đơn</p>
+                <p className="font-semibold">2.3K</p>
+              </div>
+            </div>
+
+            {/* Nút */}
+            <div className="mt-4 flex flex-col gap-2">
+              <button className="w-full rounded-full bg-red-500 text-white py-2 text-sm font-semibold">
+                Sẵn sàng
+              </button>
+              <div className="flex gap-2">
+                <button className="flex-1 rounded-full border border-pink-500 text-pink-500 py-2 text-sm">
+                  Donate
+                </button>
+                <button className="flex-1 rounded-full bg-pink-500 text-white py-2 text-sm">
+                  Gửi lộc
+                </button>
+              </div>
+            </div>
           </div>
+        </aside>
 
-          {/* Thông tin bên phải */}
-          <div className="flex flex-1 flex-col gap-3">
-            {/* Tên + giá theo giờ */}
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <h1 className="text-2xl font-extrabold text-slate-900 sm:text-3xl">
-                Nguyễn Văn A
-              </h1>
+        {/* Nội dung phải */}
+        <section className="flex-1">
+          <div className="bg-white rounded-2xl shadow-sm p-4">
+            {/* Header Game */}
+            <h3 className="text-xl font-semibold mb-4">Game:</h3>
 
-              <div className="flex flex-col items-start gap-2 sm:items-end">
-                <div className="inline-flex items-baseline gap-1 self-start rounded-full bg-gradient-to-tr from-orange-500 to-yellow-300 px-3 py-1.5 text-slate-900 shadow-lg sm:self-end sm:px-4 sm:py-2">
-                  <span className="text-lg font-bold sm:text-xl">
-                    350.000đ
-                  </span>
-                  <span className="text-[10px] font-semibold uppercase sm:text-[11px]">
-                    /giờ
-                  </span>
+            {/* Tabs game: cuộn ngang nếu nhiều trên mobile */}
+            <div className="flex gap-2 mb-4 overflow-x-auto pb-1">
+              <button className="whitespace-nowrap px-4 py-2 rounded-full bg-orange-100 text-orange-600 text-sm font-medium border border-orange-400">
+                Liên Minh Huyền Thoại
+              </button>
+              <button className="whitespace-nowrap px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm">
+                Hát
+              </button>
+              <button className="whitespace-nowrap px-4 py-2 rounded-full bg-gray-100 text-gray-600 text-sm">
+                Tâm Sự
+              </button>
+            </div>
+
+            {/* Card chi tiết: cột trên mobile, 2 cột ở md+ */}
+            <div className="flex flex-col gap-6 md:flex-row">
+              <div className="flex-1">
+                <h4 className="text-lg font-semibold mb-2">Liên Minh Huyền Thoại</h4>
+                <p className="text-sm text-gray-600">
+                  Thời kỳ nhận: Thứ 2 - Thứ 7, Chủ nhật.
+                </p>
+                <p className="text-sm text-gray-600">
+                  Thời gian nhận: 00:00 - 00:00.
+                </p>
+
+                {/* Thanh audio demo */}
+                <div className="mt-3 flex items-center gap-3">
+                  <button className="h-10 w-10 rounded-full bg-red-500 text-white flex items-center justify-center">
+                    ▶
+                  </button>
+                  <div className="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="h-full w-1/3 bg-red-500" />
+                  </div>
+                  <span className="text-xs text-gray-500">0:12</span>
+                </div>
+
+                {/* Mô tả */}
+                <p className="mt-4 text-sm text-gray-700 leading-relaxed">
+                  Nhận game, hát và game (Lol, Steam)... (điền mô tả của bạn ở đây).
+                </p>
+              </div>
+
+              {/* Box giá bên phải */}
+              <div className="w-full md:w-60">
+                <div className="bg-red-50 rounded-2xl p-4 flex flex-col items-center gap-3">
+                  <p className="text-2xl font-bold text-red-500">
+                    310<span className="text-base font-semibold"> 💎/h</span>
+                  </p>
+                  <button className="w-full py-2 rounded-full bg-red-500 text-white font-semibold">
+                    Đặt đơn
+                  </button>
+                  <button className="w-full py-2 rounded-full bg-white border border-gray-300 text-gray-800 font-medium">
+                    Trò chuyện
+                  </button>
                 </div>
               </div>
             </div>
-
-            {/* Rating + vị trí */}
-            <div className="flex flex-col gap-2 text-xs text-slate-600 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 sm:text-sm">
-              <div className="flex items-center gap-1 text-amber-500">
-                <span>★★★★☆</span>
-                <span className="font-semibold text-slate-900">4.5</span>
-                <span className="text-slate-500">(120 đánh giá)</span>
-              </div>
-            </div>
-
-            {/* Tag dịch vụ */}
-            <div className="flex flex-wrap gap-2 text-[11px] sm:text-xs">
-              <span className="rounded-full bg-pink-50 px-3 py-1 text-pink-600 border border-pink-200">
-                Hẹn hò
-              </span>
-              <span className="rounded-full bg-indigo-50 px-3 py-1 text-indigo-600 border border-indigo-200">
-                Xem phim
-              </span>
-              <span className="rounded-full bg-emerald-50 px-3 py-1 text-emerald-600 border border-emerald-200">
-                Đi chơi
-              </span>
-              <span className="rounded-full bg-amber-50 px-3 py-1 text-amber-600 border border-amber-200">
-                Làm việc nhà
-              </span>
-              <span className="rounded-full bg-sky-50 px-3 py-1 text-sky-600 border border-sky-200">
-                Giúp việc
-              </span>
-            </div>
-
-            {/* Thông tin liên hệ */}
-            <p className="text-sm font-semibold text-sky-600">
-              Frontend Developer
-            </p>
-            <p className="text-xs text-slate-600 sm:text-sm">
-              nguyenvana@example.com
-            </p>
-
-            <strong className="text-xs text-gray-600 block mb-1">
-                Hà Nội - Ba Đình
-            </strong>
-            {/* Nút Thuê ngay */}
-            <button
-              className="mt-1 w-32 rounded-lg bg-pink-500 px-5 py-3 text-[11px] text-white transition-colors hover:bg-pink-600 md:text-sm"
-            >
-              Thuê Ngay
-            </button>
           </div>
         </section>
-        <section
-          className="
-            flex w-full max-w-6xl flex-col gap-4 rounded-2xl bg-white p-4 shadow-xl
-            sm:flex-row sm:gap-6 sm:p-6
-          "
-        >
-          
-        </section>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
