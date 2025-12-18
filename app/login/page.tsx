@@ -34,13 +34,13 @@ const LoginPage = () => {
         </button>
         <button
           onClick={() => handleLogin("Google")}
-          className="flex items-center justify-start gap-2 w-full bg-red-500 text-white pl-4 py-3 rounded hover:bg-red-600 transition"
+          className="flex items-center justify-start gap-2 w-full bg-red-500 text-white pl-4 py-3 rounded hover:bg-red-600 transition cursor-pointer"
         >
           <FaGoogle /> Đăng nhập với Google
         </button>
         <button
           onClick={() => handleLogin("Twitter")}
-          className="flex items-center justify-start gap-2 w-full bg-sky-500 text-white pl-4 py-3 rounded hover:bg-sky-600 transition"
+          className="flex items-center justify-start gap-2 w-full bg-sky-500 text-white pl-4 py-3 rounded hover:bg-sky-600 transition cursor-pointer"
         >
           <FaTwitter /> Đăng nhập với Twitter
         </button>
