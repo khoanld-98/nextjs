@@ -1,6 +1,5 @@
 "use client";
-import Image from "next/image";
-import { useState } from "react";
+import { useEffect } from "react";
 
 type PropListItem = {
     title: string;
@@ -56,6 +55,14 @@ const data: Girl[] = [
 ];
 
 const ItemListLayout = ({title} :PropListItem) => {
+  useEffect(() => {
+    console.log('ItemListLayout mounted');
+
+    return () => {
+      console.log('ItemListLayout unmounted');
+    }
+	});
+
   return (
     <section className="w-full bg-gray-50 px-4 py-8">
         <div className="max-w-6xl mx-auto">

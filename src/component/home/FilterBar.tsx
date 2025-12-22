@@ -16,11 +16,9 @@ export default function FilterBar() {
   const [desire, setDesire] = useState("");
   const [location, setLocation] = useState("");
   const [sortPrice, setSortPrice] = useState<"asc" | "desc" | "">("");
-  const [minPrice, setMinPrice] = useState<string>("");
-  const [maxPrice, setMaxPrice] = useState<string>("");
 
   const handleApply = () => {
-    console.log(desire, location, sortPrice, minPrice, maxPrice);
+    console.log(desire, location, sortPrice);
   };
 
   return (
@@ -74,35 +72,6 @@ export default function FilterBar() {
             <option value="desc">Giá giảm dần</option>
             </select>
         </div>
-
-        {/* Khoảng tiền */}
-        {/* <div className="flex gap-2">
-            <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-                Giá từ
-            </label>
-            <input
-                type="number"
-                value={minPrice}
-                onChange={(e) => setMinPrice(e.target.value)}
-                placeholder="500000"
-                className="w-24 border rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
-            />
-            </div>
-            <div>
-            <label className="block text-sm font-medium mb-1 text-gray-700">
-                Đến
-            </label>
-            <input
-                type="number"
-                value={maxPrice}
-                onChange={(e) => setMaxPrice(e.target.value)}
-                placeholder="2000000"
-                className="w-24 border rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
-            />
-            </div>
-        </div> */}
-
         {/* Nút áp dụng */}
         <button
             type="button"

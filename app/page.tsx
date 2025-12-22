@@ -1,5 +1,3 @@
-import Image from "next/image";
-import ProductIntro from "@/src/component/home/ProductItem";
 import ItemListLayout from "@/src/component/home/ListIemLayout";
 import FilterBar from "@/src/component/home/FilterBar"
 
