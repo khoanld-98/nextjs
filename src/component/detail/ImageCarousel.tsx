@@ -8,15 +8,11 @@ const images = [
     { id: 2, src: "/images/person2.jpg", alt: "Slide 2" },
     { id: 3, src: "/images/person3.jpg", alt: "Slide 3" },
     { id: 4, src: "/images/person3.jpg", alt: "Slide 4" },
-    { id: 5, src: "/images/person.jpg", alt: "Slide 5" },
 ];
 
 export default function ImageCarousel() {
     const [current, setCurrent] = useState(0);
     const length = images.length;
-
-    const [startIndex, setStartIndex] = useState(0);
-    const visibleCount = 4; // số thumbnail hiển thị mỗi lần
   
     const nextSlide = () => {
       setCurrent((prev) => (prev === length - 1 ? 0 : prev + 1));
@@ -37,26 +33,6 @@ export default function ImageCarousel() {
   
     if (!Array.isArray(images) || length === 0) return null;
 
-    const canPrev = startIndex > 0;
-    const canNext = startIndex + visibleCount < images.length;
-
-    const handlePrevThumb = () => {
-    if (!canPrev) return;
-    setStartIndex((prev) => Math.max(0, prev - visibleCount));
-    };
-
-    const handleNextThumb = () => {
-    if (!canNext) return;
-    setStartIndex((prev) =>
-        Math.min(images.length - visibleCount, prev + visibleCount)
-    );
-    };
-
-    const visibleImages = images.slice(
-    startIndex,
-    Math.min(startIndex + visibleCount, images.length)
-    );
-  
     return (
         <div className="w-full">
             <div className="relative w-full max-w-3xl mx-auto overflow-hidden rounded-xl shadow-lg">
@@ -115,9 +91,10 @@ export default function ImageCarousel() {
             </div>
             
             <div className="flex items-center mt-4">
-                <div className="flex items-center gap-2 m-auto overflow-x-auto">
+                <div className="flex items-center gap-2 m-auto overflow-x-auto scroll-smooth">
                     {images.map((img, index) => (
                         <button
+                            key={img.id}
                             type="button"
                             onClick={() => setCurrent(index)}
                             className="relative inline-block focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg"
