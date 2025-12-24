@@ -23,9 +23,7 @@ export default function InformationJob() {
             <div className="flex flex-col gap-6 md:flex-row">
 				<div className="flex-1">
 					<h4 className="text-lg font-semibold mb-2">Liên Minh Huyền Thoại</h4>
-					<p className="text-sm text-gray-600">
-					Thời kỳ nhận: Thứ 2 - Thứ 7, Chủ nhật.
-					</p>
+					<p className="text-sm text-gray-600">Thời kỳ nhận: Thứ 2 - Thứ 7, Chủ nhật.</p>
 					<p className="text-sm text-gray-600">
 					Thời gian nhận: 00:00 - 00:00.
 					</p>
