@@ -88,7 +88,7 @@ export default function ProductReview() {
         <hr className="border-gray-200" />
 
       {/* Danh sách review */}
-        <div className="space-y-4 max-h-80 overflow-y-auto pr-1">
+        <div className="space-y-4 max-h-80 overflow-y-auto pr-1 mt-2">
             {reviews.map((review) => (
             <article
                 key={review.id}
