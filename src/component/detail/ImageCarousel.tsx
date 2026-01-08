@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useEffectEvent } from "react";
 import Image from "next/image";
 
 const images = [
@@ -21,15 +21,23 @@ export default function ImageCarousel() {
     const prevSlide = () => {
       setCurrent((prev) => (prev === 0 ? length - 1 : prev - 1));
     };
+
+    const setIntervals = useEffectEvent(() => {
+        const timer = setInterval(() => {
+            nextSlide();
+        }, 6000);
+
+       return timer;
+    });
   
     // Tự động chạy sau mỗi 6s
     useEffect(() => {
-      const timer = setInterval(() => {
-        nextSlide();
-      }, 6000);
-  
-      return () => clearInterval(timer);
-    }, [length, current]);
+        const timer = setIntervals();
+
+        return () => {
+            clearInterval(timer);
+        }
+    }, []);
   
     if (!Array.isArray(images) || length === 0) return null;
 

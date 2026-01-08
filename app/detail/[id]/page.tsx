@@ -2,6 +2,7 @@ import InformationJob from  '@/src/component/detail/InformationJob';
 import TabDetail from '@/src/component/detail/Tab';
 import Review from '@/src/component/detail/Review';
 import ImageCarousel from '@/src/component/detail/ImageCarousel';
+import Counter from '@/src/component/detail/Counter';
 
 export default function Home() {
   return (
@@ -72,6 +73,7 @@ export default function Home() {
 				<InformationJob />
 				<TabDetail />
 				<Review />
+				<Counter/>
 			</section>
 		</div>
     </main>
