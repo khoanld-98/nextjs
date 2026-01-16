@@ -1,4 +1,5 @@
 'use client'
+import ButtonConfirm from '@/src/component/detail/ButtonConfirm';
 
 export default function InformationJob() {
     return (
@@ -51,9 +52,7 @@ export default function InformationJob() {
 					<p className="text-2xl font-bold text-red-500">
 						310<span className="text-base font-semibold"> 💎/h</span>
 					</p>
-					<button className=" cursor-pointer w-full py-2 rounded-full bg-red-500 text-white font-semibold">
-						Đặt đơn
-					</button>
+					<ButtonConfirm />
 					<button className=" cursor-pointer w-full py-2 rounded-full bg-white border border-gray-300 text-gray-800 font-medium">
 						Trò chuyện
 					</button>
