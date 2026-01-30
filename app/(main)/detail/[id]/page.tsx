@@ -3,7 +3,22 @@ import TabDetail from '@/src/component/detail/Tab';
 import Review from '@/src/component/detail/Review';
 import ImageCarousel from '@/src/component/detail/ImageCarousel';
 import Counter from '@/src/component/detail/Counter';
-export default function Home() {
+import type { Metadata } from 'next'
+
+type Props = {
+	params: Promise<{ id: string }>;
+}
+
+export async function generateMetadata({ params }: Props) {
+	  	const { id } = await params;
+
+		return {
+			title: `Chi tiết công việc ${id}`,
+			description: `Trang chi tiết công việc với ID: ${id}`,
+		};
+}
+
+export default function Home({}) {
   return (
     <main className="min-h-screen bg-[#f5f5f5]">
       {/* flex-col trên mobile, md trở lên mới nằm hàng ngang */}
